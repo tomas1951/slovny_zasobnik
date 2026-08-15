@@ -1,0 +1,1827 @@
+[
+  {
+    "word": "zemák",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "zemiak"
+  },
+  {
+    "word": "abatiša",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "predstavená ženského kláštora, matka predstavená"
+  },
+  {
+    "word": "ablegát",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "poslanec krajinského snemu v Rakúsko-Uhorsku; volený zástupca v Rakúsko-Uhorsku"
+  },
+  {
+    "word": "máj",
+    "pos": "Podstatné meno",
+    "tags": [
+      "folk"
+    ],
+    "meaning": "ku sviatku Zoslania Ducha Svätého postavená breza k plotu domu slobodnej mladej dievčiny"
+  },
+  {
+    "word": "január",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "dialect"
+    ],
+    "meaning": "ľadeň, sečeň, veľký sečeň"
+  },
+  {
+    "word": "dna",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "lámka, pakostnica, podagra"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "brána, dvere, vrátnica, vráta, hlavný alebo významný vchod do budovy"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "dom a pozemok"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "základná daňová jednotka v Uhorsku počas obdobia feudalizmu, kedysi daňový základ na výpočet dane"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "sedliacka usadlosť"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "zamatový pás na hlave vyzdobený perlami"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "stužka, ktorá nahrádza starodávne vyšívanie na blúzke"
+  },
+  {
+    "word": "porta",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "podšívka na vnútornej strane manžety"
+  },
+  {
+    "word": "klokan",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "austrálsky cicavec s brušným vakom"
+  },
+  {
+    "word": "botanika",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "fytológia, rastlinopis"
+  },
+  {
+    "word": "bubeník",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "tambor"
+  },
+  {
+    "word": "túha",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "túžba"
+  },
+  {
+    "word": "lavinózny",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "lavínovitý"
+  },
+  {
+    "word": "Adria",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "Jadran"
+  },
+  {
+    "word": "zadný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "druhoradý"
+  },
+  {
+    "word": "hmyz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "motýľ"
+  },
+  {
+    "word": "hmyz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect",
+      "rare"
+    ],
+    "meaning": "drobné domáce zvieratko"
+  },
+  {
+    "word": "cintorín",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": ": cinťarín, cincerín, cinterím, cinterín"
+  },
+  {
+    "word": "cintorín",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": ": cinter, cintir, cintor, cmiťer, cmiter, cmitier, : hrobitov, hroby, nahrobiech, temetov, nekropola"
+  },
+  {
+    "word": "mačka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "kotva"
+  },
+  {
+    "word": "podkarpatoruský",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "zakarpatský"
+  },
+  {
+    "word": "chrbtovina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "chrbtová kosť"
+  },
+  {
+    "word": "bukovina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "bukový les"
+  },
+  {
+    "word": "gombália",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "konvalinka"
+  },
+  {
+    "word": "oprava",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "reforma, náprava"
+  },
+  {
+    "word": "domášny",
+    "pos": "Prídavné meno",
+    "tags": [
+      "folk"
+    ],
+    "meaning": "domáci"
+  },
+  {
+    "word": "burgyňa",
+    "pos": "Podstatné meno",
+    "tags": [
+      "regional"
+    ],
+    "meaning": "repa"
+  },
+  {
+    "word": "kiahne",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "sypanice"
+  },
+  {
+    "word": "posthumný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "vydaný po smrti svojho autora"
+  },
+  {
+    "word": "chválny",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "pochvalný"
+  },
+  {
+    "word": "Cejlón",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "Srí Lanka"
+  },
+  {
+    "word": "sypanice",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "kiahne"
+  },
+  {
+    "word": "pocel",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "bozk"
+  },
+  {
+    "word": "gramatika",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "tretia trieda gymnázia"
+  },
+  {
+    "word": "splendidný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "prepychový, honosný"
+  },
+  {
+    "word": "bránica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "dvierka, bránka"
+  },
+  {
+    "word": "bránica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "zábradlie, ohrada"
+  },
+  {
+    "word": "jesienka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "jesenný syr"
+  },
+  {
+    "word": "slnko",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "slnce"
+  },
+  {
+    "word": "sud",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "smetiak"
+  },
+  {
+    "word": "kranium",
+    "pos": "Podstatné meno",
+    "tags": [
+      "old"
+    ],
+    "meaning": "lebka"
+  },
+  {
+    "word": "malík",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "malíček"
+  },
+  {
+    "word": "nádej",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "úfnosť, optimizmus"
+  },
+  {
+    "word": "manga",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "druh ošípanej s kučeravou srsťou"
+  },
+  {
+    "word": "podagra",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "dna"
+  },
+  {
+    "word": "bicykel",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "velocipéd, koleso"
+  },
+  {
+    "word": "velocipéd",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "bicykel"
+  },
+  {
+    "word": "akuratesný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "presný"
+  },
+  {
+    "word": "magistra",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "magisterka"
+  },
+  {
+    "word": "buržoázia",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "mestská spoločenská trieda, ktorá nepotrebuje zarábať si vlastnými rukami"
+  },
+  {
+    "word": "čučoriedka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "čučoriadka, čucorietka, čučurietka, čičorietka, čičerietka, čečerietka, čučuriatka, čičoriatka, čičuriatka, čičurátka"
+  },
+  {
+    "word": "holeň",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "horná časť čižmy"
+  },
+  {
+    "word": "vakantný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "neobsadený"
+  },
+  {
+    "word": "vakantný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "nezamestnaný"
+  },
+  {
+    "word": "intaktný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "nedotknutý, neporušený"
+  },
+  {
+    "word": "dešpektný",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "vyjadrujúci dešpekt"
+  },
+  {
+    "word": "kozol",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "cap"
+  },
+  {
+    "word": "chémia",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "lučba"
+  },
+  {
+    "word": "šamoa",
+    "pos": "Prídavné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "majúci svetlohnedú farbu"
+  },
+  {
+    "word": "veraje",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "krídlo dverí"
+  },
+  {
+    "word": "filosemitizmus",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "náklonnosť k Židom"
+  },
+  {
+    "word": "psychizmus",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "psychika"
+  },
+  {
+    "word": "mydlo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "nátržník husí"
+  },
+  {
+    "word": "lebavý",
+    "pos": "Prídavné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "váhavý, nerozhodný"
+  },
+  {
+    "word": "jablčistý",
+    "pos": "Prídavné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "okrúhly, tučný"
+  },
+  {
+    "word": "jablčistý",
+    "pos": "Prídavné meno",
+    "tags": [
+      "regional"
+    ],
+    "meaning": "grošovaný"
+  },
+  {
+    "word": "galaxia",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "hmlovina"
+  },
+  {
+    "word": "mlynárik",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "sýkorka"
+  },
+  {
+    "word": "bobor európsky",
+    "pos": null,
+    "tags": [
+      "old"
+    ],
+    "meaning": "bobor vodný, bobor eurázijský, bobor euroázijský, bobor obyčajný, bobor riečny"
+  },
+  {
+    "word": "levulóza",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "fruktóza"
+  },
+  {
+    "word": "žabie očko",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "nezábudka"
+  },
+  {
+    "word": "žabacie mlieko",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "mliečnik chvojkový"
+  },
+  {
+    "word": "izba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "izbica"
+  },
+  {
+    "word": "bochnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "bochník"
+  },
+  {
+    "word": "vrchnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "vrchná sukňa"
+  },
+  {
+    "word": "besnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "folk"
+    ],
+    "meaning": "pálenka"
+  },
+  {
+    "word": "zima",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "chlad, chladno, studeno, studenosť, chladnosť, chladnota"
+  },
+  {
+    "word": "hrnec",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "hrniec"
+  },
+  {
+    "word": "pasca",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "osídlo, klepec, slučka, lapák, pasť"
+  },
+  {
+    "word": "pasca",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "osídlo, klepec, úklad, nástraha, pasť"
+  },
+  {
+    "word": "Vianoce",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "Narodenie Ježiša Krista, Narodenie Pána, slávnosť Narodenia Pána, sviatok Narodenia Pána, Božie narodenie, sviatok Božieho narodenia, : Boží hod, Svätá noc"
+  },
+  {
+    "word": "blvanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "dávenie, vracanie"
+  },
+  {
+    "word": "blvanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "chrlenie (krvi)"
+  },
+  {
+    "word": "blvanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "pľutie"
+  },
+  {
+    "word": "blvanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "trepanie, rozprávanie hlúpostí"
+  },
+  {
+    "word": "grcanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "táranie"
+  },
+  {
+    "word": "rihanie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "dávenie"
+  },
+  {
+    "word": "ampula",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "olejová závesná lampa"
+  },
+  {
+    "word": "Budapešť",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "Pešťbudín"
+  },
+  {
+    "word": "pán",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "kto je v mocenskom postavení"
+  },
+  {
+    "word": "Rus",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "Rusko"
+  },
+  {
+    "word": "apo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "otec"
+  },
+  {
+    "word": "botanička",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "fytologička"
+  },
+  {
+    "word": "borák",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "masliak obyčajný"
+  },
+  {
+    "word": "slon africký",
+    "pos": null,
+    "tags": [
+      "folk"
+    ],
+    "meaning": "slon veľkouchý, slon stepný, slon savanový, savanový slon"
+  },
+  {
+    "word": "vlk",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "pirkoš, viľk, vľk, vovk"
+  },
+  {
+    "word": "vlk",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "luterán"
+  },
+  {
+    "word": "dekretál",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "dekretále"
+  },
+  {
+    "word": "geročina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "kabát"
+  },
+  {
+    "word": "žriebä",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "koníča, kônča"
+  },
+  {
+    "word": "koníča",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "žriebä, kônča"
+  },
+  {
+    "word": "bobor vodný",
+    "pos": null,
+    "tags": [
+      "old"
+    ],
+    "meaning": "bobor eurázijský, bobor euroázijský, bobor európsky, bobor obyčajný, bobor riečny"
+  },
+  {
+    "word": "májina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "zelené vetvičky stromov"
+  },
+  {
+    "word": "pújdze",
+    "pos": "Sloveso",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) pôjde"
+  },
+  {
+    "word": "tóte",
+    "pos": "Zámeno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) tieto"
+  },
+  {
+    "word": "harníček",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) hrnček"
+  },
+  {
+    "word": "mandolinka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) pásavka zemiaková"
+  },
+  {
+    "word": "šerpínka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) panvica"
+  },
+  {
+    "word": "šerpňa",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) panvica"
+  },
+  {
+    "word": "dožinky",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "obžinky"
+  },
+  {
+    "word": "obžinky",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "dožinky"
+  },
+  {
+    "word": "mlieč",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "rybí samec"
+  },
+  {
+    "word": "mlieč",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "rýdzik korenistý"
+  },
+  {
+    "word": "dneška",
+    "pos": "Príslovka",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) dneska"
+  },
+  {
+    "word": "ďalek",
+    "pos": "Zámeno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) kamže"
+  },
+  {
+    "word": "znac",
+    "pos": "Sloveso",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) vedieť"
+  },
+  {
+    "word": "hlašic",
+    "pos": "Sloveso",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) hlásiť (napr. rozhlasom)"
+  },
+  {
+    "word": "poštár",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "vankúš"
+  },
+  {
+    "word": "poštár",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "doručovateľ, listár"
+  },
+  {
+    "word": "štvartek",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) štvrtok"
+  },
+  {
+    "word": "chľib",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) chlieb"
+  },
+  {
+    "word": "mašina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) písací stroj"
+  },
+  {
+    "word": "žviradlo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) zrkadlo"
+  },
+  {
+    "word": "žeľeňina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) zelenina"
+  },
+  {
+    "word": "žeľene",
+    "pos": "Prídavné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(Vyšný Slavkov) zelené"
+  },
+  {
+    "word": "masliak obyčajný",
+    "pos": null,
+    "tags": [
+      "folk"
+    ],
+    "meaning": "borový hríb, podborovník, mašlej, podborovec, sosnäk, masliar, kakáš, soplačka, mäkkýš"
+  },
+  {
+    "word": "mlčať",
+    "pos": "Sloveso",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "čušať, melčiť"
+  },
+  {
+    "word": "mučeník",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "martýr, trpiteľ, mučedelník"
+  },
+  {
+    "word": "samopal",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "strelná zbraň"
+  },
+  {
+    "word": "kapucňa",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "kukla, kapuca"
+  },
+  {
+    "word": "mikuláš",
+    "pos": "Podstatné meno",
+    "tags": [
+      "folk"
+    ],
+    "meaning": "ucholak"
+  },
+  {
+    "word": "kuchyňa",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "keler, kehňa, kuchňa, šporhert"
+  },
+  {
+    "word": "krížovka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "krížne postavená priečka z dosiek"
+  },
+  {
+    "word": "krížovka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "križofka"
+  },
+  {
+    "word": "jazyčník",
+    "pos": "Podstatné meno",
+    "tags": [
+      "old"
+    ],
+    "meaning": "rod papagájov z čeľade kakaduorodé"
+  },
+  {
+    "word": "fištrón",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "rybí tuk"
+  },
+  {
+    "word": "šál",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "halstuch, hoľstuh"
+  },
+  {
+    "word": "topor",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "porisko"
+  },
+  {
+    "word": "storočie",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "stoletie, vek"
+  },
+  {
+    "word": "škôlka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "ovoda, úvoda"
+  },
+  {
+    "word": "prach",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "tabletka, liek v podobe prachu"
+  },
+  {
+    "word": "prach",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "telesné ostatky, obyčajne ostatky dávno umrelých"
+  },
+  {
+    "word": "prach",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "proh"
+  },
+  {
+    "word": "zob vtáčí",
+    "pos": null,
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "bršlen, zobačka, samolýš, bršlinia, zimolýz"
+  },
+  {
+    "word": "smäd",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "smädnota, žízeň"
+  },
+  {
+    "word": "začať",
+    "pos": "Sloveso",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "zahájiť, začnúť"
+  },
+  {
+    "word": "barbakán",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "pevnostný prvok, predsunuté opevnenie pred hradnou alebo mestskou bránou"
+  },
+  {
+    "word": "svah",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "stráň, úboč, úbočie, úbočina, breh, strmina, zráz, príkrina, zábrežie, spust, lazina"
+  },
+  {
+    "word": "fenig",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "bývalá čiastková menová jednotka a platidlo v Nemecku (do r. 2001), stotina marky"
+  },
+  {
+    "word": "fenig",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "bývalá čiastková menová jednotka a platidlo v Poľsku (1917-1924), stotina poľskej marky"
+  },
+  {
+    "word": "fenig",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "stredoveká aj novoveká minca s hodnotou stotiny marky"
+  },
+  {
+    "word": "fenig",
+    "pos": "Podstatné meno",
+    "tags": [
+      "historical"
+    ],
+    "meaning": "bývalá jednotka váhy používaná najmä v nemecko hovoriacich krajinách"
+  },
+  {
+    "word": "terno",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "pri obsadzovaní funkcií návrh troch osôb, z ktorých sa potom jedna vyberie"
+  },
+  {
+    "word": "čeľaď",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "rod, ľud, pokolenie; všetci pokrvní príbuzní žijúci v tom istom dome, prípadne samotný dom; rodina; rodina spolu so sluhami; hradný ľud či branný ľud; rodinní príslušníci žijúci v jednej domácnosti; rodina so služobníctvom"
+  },
+  {
+    "word": "čeľaď",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "skupina"
+  },
+  {
+    "word": "čeľaď",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "včelstvo, včelia rodina"
+  },
+  {
+    "word": "čeľaď",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "família, rodina"
+  },
+  {
+    "word": "larva",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "maska"
+  },
+  {
+    "word": "kengura",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "klokan, kenguru"
+  },
+  {
+    "word": "pôjd",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "(v mlynárstve) podlaha, na ktorej sú umiestnené mlynské kamene"
+  },
+  {
+    "word": "pôjd",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "povala, pujd, pajd"
+  },
+  {
+    "word": "porto",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "poštovné, listovné"
+  },
+  {
+    "word": "port",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "prístav"
+  },
+  {
+    "word": "netopier veľký",
+    "pos": null,
+    "tags": [
+      "old"
+    ],
+    "meaning": "netopier obyčajný"
+  },
+  {
+    "word": "záujemca",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "uchádzač, záujemník, interesant, interesent"
+  },
+  {
+    "word": "sedliak",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "dedinčan, vidiečan"
+  },
+  {
+    "word": "sedliak",
+    "pos": "Podstatné meno",
+    "tags": [
+      "old"
+    ],
+    "meaning": "pešiak, figúrka v šachu"
+  },
+  {
+    "word": "obloha",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "nebo, výšina, báň, firmament"
+  },
+  {
+    "word": "obyvateľ",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "občan, duša"
+  },
+  {
+    "word": "prežúvavý",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "ustavične opakovaný, omieľaný"
+  },
+  {
+    "word": "lučba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "chémia"
+  },
+  {
+    "word": "kameň",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect",
+      "rare"
+    ],
+    "meaning": "osla na brúsenie kosy"
+  },
+  {
+    "word": "kameň",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect",
+      "rare"
+    ],
+    "meaning": "ľadovec, ľadová krúpa"
+  },
+  {
+    "word": "ponorka",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "podmorská loď, podmorský čln"
+  },
+  {
+    "word": "vlastnosť",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "vlastníctvo, majetok"
+  },
+  {
+    "word": "perla",
+    "pos": "Podstatné meno",
+    "tags": [
+      "poetic"
+    ],
+    "meaning": "malé súdržné množstvo kvapaliny, kvapka, slza"
+  },
+  {
+    "word": "perla",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "bublinka vzduchu vo víne, minerálke a pod."
+  },
+  {
+    "word": "krumpeľ",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "zemiak, : bandura, bandurka, brambor, ertepla, gruľa, švábka, zemák"
+  },
+  {
+    "word": "ľud",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "(pod vplyvom nemčiny) národ"
+  },
+  {
+    "word": "zväz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "väzivo, sval"
+  },
+  {
+    "word": "zväz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "vnútorné spojivo, puto, súdržnosť"
+  },
+  {
+    "word": "zväz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "povraz na stiahnutie, zviazanie nákladného voza"
+  },
+  {
+    "word": "zväz",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "štruktúra"
+  },
+  {
+    "word": "knižnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "knihovňa"
+  },
+  {
+    "word": "knižnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "knihovňa"
+  },
+  {
+    "word": "knižnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "(polica na knihy) knihovnička, knihovňa"
+  },
+  {
+    "word": "rastlinopis",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "botanika"
+  },
+  {
+    "word": "hadica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "samica hada"
+  },
+  {
+    "word": "hadica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "falošná, úlisná žena"
+  },
+  {
+    "word": "parchant",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "panghart"
+  },
+  {
+    "word": "vonkajší",
+    "pos": "Prídavné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "externý, vonkajškový, zovňajší, zovnútorný, exogénny, ektogénny, exoterický"
+  },
+  {
+    "word": "post",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "stanovište, štand"
+  },
+  {
+    "word": "post",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "člen stráže, hliadky"
+  },
+  {
+    "word": "ostroha",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "ostrôžka poľná"
+  },
+  {
+    "word": "ostroha",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "drevený sušiak na ďatelinu, trávu, a pod."
+  },
+  {
+    "word": "politik",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "prefikaný človek"
+  },
+  {
+    "word": "politik",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "kto sa pretvaruje"
+  },
+  {
+    "word": "politik",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "prefíkanec, politikant"
+  },
+  {
+    "word": "sednica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "zasadnutie, schôdzka"
+  },
+  {
+    "word": "kŕdeľ",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "krdeľ, kerdeľ, kirdeľ"
+  },
+  {
+    "word": "zrkadlo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "old"
+    ],
+    "meaning": "vodorovné, obyčajne obdĺžnikové pole zrkadlovej klenby"
+  },
+  {
+    "word": "zrkadlo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "zoznam, súpis na pripamätanie"
+  },
+  {
+    "word": "zrkadlo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "žviradlo"
+  },
+  {
+    "word": "nip",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "drobný umelecký predmet"
+  },
+  {
+    "word": "podoba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "dialect"
+    ],
+    "meaning": "predpoklad, vyhliadka, perspektíva"
+  },
+  {
+    "word": "nádoba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "nástroj, náčinie, zariadenie, prostriedok na nejakú činnosť"
+  },
+  {
+    "word": "nádoba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "pohlavný orgán"
+  },
+  {
+    "word": "nádoba",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "nádobok"
+  },
+  {
+    "word": "nádob",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "rare"
+    ],
+    "meaning": "nádoba, dutý predmet s dnom"
+  },
+  {
+    "word": "nádob",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "rare"
+    ],
+    "meaning": "nádoba, telo človeka"
+  },
+  {
+    "word": "nádob",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "rare"
+    ],
+    "meaning": "nádoba, nástroj"
+  },
+  {
+    "word": "nádob",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic",
+      "rare"
+    ],
+    "meaning": "nádoba, pohlavný orgán"
+  },
+  {
+    "word": "množstvo",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "zástup, dav ľudí"
+  },
+  {
+    "word": "pre",
+    "pos": "Predložka",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "skrz, skrze, v dôsledku, následkom, vďaka, vinou, kroz, kvôli"
+  },
+  {
+    "word": "počet",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "účtovanie, vyúčtovanie"
+  },
+  {
+    "word": "pri",
+    "pos": "Predložka",
+    "tags": [
+      "dialect"
+    ],
+    "meaning": "vyjadruje časovú blízkosť pred niečím"
+  },
+  {
+    "word": "diaľnica",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "autostráda"
+  },
+  {
+    "word": "hmlovina",
+    "pos": "Podstatné meno",
+    "tags": [
+      "archaic"
+    ],
+    "meaning": "rozľahlý astronomický objekt mimo Mliečnej cesty, galaxia"
+  },
+  {
+    "word": "stupiť",
+    "pos": "Sloveso",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "zbaviť nástroj alebo objekt ostrosti a reznej schopnosti"
+  },
+  {
+    "word": "stupiť",
+    "pos": "Sloveso",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "stratiť ostrosť alebo reznú hranu"
+  },
+  {
+    "word": "stupiť",
+    "pos": "Sloveso",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "stratiť pôvodnú prudkosť, pálčivosť alebo intenzitu (o pocitoch, spomienkach či vnemoch)"
+  },
+  {
+    "word": "stupiť",
+    "pos": "Sloveso",
+    "tags": [
+      "rare"
+    ],
+    "meaning": "variantný tvar slovesa"
+  }
+]
