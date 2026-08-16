@@ -6,29 +6,29 @@ DELETE FROM "word_reports";
 DELETE FROM "word_meanings";
 
 -- DropForeignKey
-ALTER TABLE "_LemmaToTag" DROP CONSTRAINT "_LemmaToTag_A_fkey";
+ALTER TABLE "_LemmaToTag" DROP CONSTRAINT IF EXISTS "_LemmaToTag_A_fkey";
 
 -- DropForeignKey
-ALTER TABLE "_LemmaToTag" DROP CONSTRAINT "_LemmaToTag_B_fkey";
+ALTER TABLE "_LemmaToTag" DROP CONSTRAINT IF EXISTS "_LemmaToTag_B_fkey";
 
 -- DropForeignKey
-ALTER TABLE "word_meanings" DROP CONSTRAINT "word_meanings_lemmaId_fkey";
+ALTER TABLE "word_meanings" DROP CONSTRAINT IF EXISTS "word_meanings_lemmaId_fkey";
 
 -- DropIndex
-DROP INDEX "word_meanings_lemmaId_idx";
+DROP INDEX IF EXISTS "word_meanings_lemmaId_idx";
 
 -- AlterTable
-ALTER TABLE "word_meanings" DROP COLUMN "lemmaId",
-ADD COLUMN     "wordId" TEXT NOT NULL;
+ALTER TABLE "word_meanings" DROP COLUMN IF EXISTS "lemmaId",
+ADD COLUMN IF NOT EXISTS "wordId" TEXT NOT NULL;
 
 -- DropTable
-DROP TABLE "_LemmaToTag";
+DROP TABLE IF EXISTS "_LemmaToTag";
 
 -- DropTable
-DROP TABLE "lemmas";
+DROP TABLE IF EXISTS "lemmas";
 
 -- CreateTable
-CREATE TABLE "words" (
+CREATE TABLE IF NOT EXISTS "words" (
     "id" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
     "word" TEXT NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE "words" (
 );
 
 -- CreateTable
-CREATE TABLE "_TagToWord" (
+CREATE TABLE IF NOT EXISTS "_TagToWord" (
     "A" TEXT NOT NULL,
     "B" TEXT NOT NULL,
 
@@ -46,22 +46,25 @@ CREATE TABLE "_TagToWord" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "words_slug_key" ON "words"("slug");
+CREATE UNIQUE INDEX IF NOT EXISTS "words_slug_key" ON "words"("slug");
 
 -- CreateIndex
-CREATE INDEX "words_word_idx" ON "words"("word");
+CREATE INDEX IF NOT EXISTS "words_word_idx" ON "words"("word");
 
 -- CreateIndex
-CREATE INDEX "_TagToWord_B_index" ON "_TagToWord"("B");
+CREATE INDEX IF NOT EXISTS "_TagToWord_B_index" ON "_TagToWord"("B");
 
 -- CreateIndex
-CREATE INDEX "word_meanings_wordId_idx" ON "word_meanings"("wordId");
+CREATE INDEX IF NOT EXISTS "word_meanings_wordId_idx" ON "word_meanings"("wordId");
 
 -- AddForeignKey
+ALTER TABLE "word_meanings" DROP CONSTRAINT IF EXISTS "word_meanings_wordId_fkey";
 ALTER TABLE "word_meanings" ADD CONSTRAINT "word_meanings_wordId_fkey" FOREIGN KEY ("wordId") REFERENCES "words"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "_TagToWord" DROP CONSTRAINT IF EXISTS "_TagToWord_A_fkey";
 ALTER TABLE "_TagToWord" ADD CONSTRAINT "_TagToWord_A_fkey" FOREIGN KEY ("A") REFERENCES "tags"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "_TagToWord" DROP CONSTRAINT IF EXISTS "_TagToWord_B_fkey";
 ALTER TABLE "_TagToWord" ADD CONSTRAINT "_TagToWord_B_fkey" FOREIGN KEY ("B") REFERENCES "words"("id") ON DELETE CASCADE ON UPDATE CASCADE;
