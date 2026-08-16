@@ -58,6 +58,38 @@ npm run build
 first admin — after registering, run
 `UPDATE users SET role='ADMIN' WHERE email='...'` directly against the DB.
 
+## Deployment
+
+Live in production at **www.slovnyzasobnik.sk**, hosted on **Vercel**
+(custom domain via Websupport.sk DNS: `www` CNAME → `cname.vercel-dns.com`,
+apex A record → `76.76.21.21`) with **Neon** (serverless Postgres) as the
+production database. `package.json`'s `postinstall: prisma generate` exists
+specifically so Vercel's build generates the gitignored
+`generated/prisma/` client — without it the build fails on
+`Cannot find module '@/generated/prisma/client'`. Vercel Analytics is
+wired in via `<Analytics />` in `app/layout.tsx`.
+
+Required env vars in Vercel (Project Settings → Environment Variables):
+`DATABASE_URL`, `AUTH_SECRET`, `AUTH_GOOGLE_ID`, `AUTH_GOOGLE_SECRET`.
+**Env var changes don't apply to existing deployments** — always redeploy
+after adding/changing one. A missing `AUTH_SECRET` in particular breaks
+*all* auth (Credentials and Google both) with next-auth's generic "There
+was a problem with the server configuration" error — check that first if
+auth breaks in prod.
+
+**Neon migration gotcha**: `prisma migrate deploy`/`migrate reset` do not
+reliably apply a multi-statement migration.sql to Neon with the same
+single-transaction atomicity local Postgres gives you — a migration can
+fail partway through with earlier statements in the *same file* already
+durably committed (constraints dropped, rows deleted), even though the
+migration is recorded as failed and blocks further deploys (P3009). If a
+migration ever fails against Neon, don't assume a clean rollback happened —
+check actual table/constraint state before deciding how to recover
+(`prisma migrate resolve --rolled-back <name>` is only safe once you've
+confirmed that). Prefer writing migrations that touch existing
+tables/constraints defensively (`IF EXISTS`/`IF NOT EXISTS` on drops and
+creates) so they're safe to retry regardless of partial application.
+
 ## Architecture
 
 - `prisma/schema.prisma` — `User`/`Account`/`Session`/`VerificationToken`

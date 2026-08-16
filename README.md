@@ -4,9 +4,12 @@ A website that teaches one lesser-used Slovak word per day — archaic, dialect,
 historical, rare, or folk vocabulary that isn't part of everyday active
 vocabulary anymore.
 
+**Live**: [www.slovnyzasobnik.sk](https://www.slovnyzasobnik.sk)
+
 ## Stack
 
-TypeScript, Next.js (App Router), PostgreSQL, Prisma ORM, Auth.js.
+TypeScript, Next.js (App Router), PostgreSQL, Prisma ORM, Auth.js. Deployed
+on Vercel with a Neon (serverless Postgres) production database.
 
 ## Getting started
 
@@ -26,16 +29,19 @@ App runs at `http://localhost:3000`.
 ## Features
 
 - **Word of the day** — one fixed word shown to every visitor per calendar
-  day, plus a "Naučiť sa ďalšie slovo" button to browse a random next word
+  day, plus a "Naučiť sa ďalšie slovo" button to browse a random next word.
+  A word with multiple senses (e.g. "perla" = pearl *and* a bubble in wine)
+  shows every meaning together under the one headword
 - **Word list** (`/words`) — browse all published words, filterable by tag
 - **Accounts** — email/password or Google sign-in
 - **Usefulness voting & polls** — anyone can mark a word useful/not useful
   (login required) or vote whether they already knew it (anonymous), with
   aggregate counts shown per word
-- **Word reports** — flag a word entry as wrong or in need of a fix
-- **Contributions** — logged-in users can submit new words; an admin
-  approves or rejects submissions at `/admin/submissions` before they go
-  public
+- **Word reports** — flag a word as wrong or propose a different tag set
+- **Contributions** — logged-in users can submit new words (or a new sense
+  of an existing word); an admin approves or rejects submissions at
+  `/admin/submissions` before they go public, and can edit any word or
+  meaning directly
 
 See `CLAUDE.md` for architecture details.
 
