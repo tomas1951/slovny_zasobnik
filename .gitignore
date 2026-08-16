@@ -1,5 +1,19 @@
 data-pipeline/raw/
 __pycache__/
 *.pyc
+.vscode/
+
+# node
 node_modules/
-.env
+.env*
+!.env.example
+
+# next.js
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# prisma
+/generated/prisma

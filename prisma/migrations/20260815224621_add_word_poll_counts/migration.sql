@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "words" ADD COLUMN     "didntKnowCount" INTEGER NOT NULL DEFAULT 0,
+ADD COLUMN     "knewCount" INTEGER NOT NULL DEFAULT 0;
