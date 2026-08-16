@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ChevronRight, CalendarDays } from "lucide-react";
 import { getWordOfTheDay } from "@/lib/wordOfDay";
 import { getPublishedWordSlugs, getPublishedWordBySlug } from "@/lib/wordNav";
+import { getTagCatalog } from "@/lib/tagCatalog";
 import { auth } from "@/lib/auth";
 import { WordCard } from "@/components/WordCard";
 import { UsefulnessWidget } from "@/components/UsefulnessWidget";
@@ -50,7 +51,7 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
               Slovo dňa
             </div>
             <p className="mt-2 text-lg font-semibold">{wordOfDay.word}</p>
-            <p className="mt-1 line-clamp-2 text-sm text-foreground/60">{wordOfDay.meaning}</p>
+            <p className="mt-1 line-clamp-2 text-sm text-foreground/60">{wordOfDay.meanings[0]?.meaning}</p>
           </Link>
         </aside>
       )}
@@ -69,6 +70,7 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
   const nextSlug = pickRandomSlug(slugs, word.slug);
   const session = await auth();
   const isAdmin = session?.user?.role === "ADMIN";
+  const tagCatalog = await getTagCatalog();
 
   return (
     <div>
@@ -80,48 +82,44 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
         </h2>
 
         <WordCard
-          id={word.id}
+          wordId={word.id}
           word={word.word}
-          pos={word.pos}
-          tags={word.tags}
-          meaning={word.meaning}
           slug={word.slug}
-          status={word.status}
+          tags={word.tags}
+          meanings={word.meanings}
           isAdmin={isAdmin}
-        >
-          <div className="mt-6 flex flex-wrap items-start justify-between gap-8 border-t border-foreground/10 pt-4">
-            <div>
+          tagCatalog={tagCatalog}
+          renderWordExtra={() => (
+            <div className="mt-6 flex flex-wrap items-start justify-between gap-8 border-t border-foreground/10 pt-4">
               <WordPoll
-                key={word.id}
+                key={`poll-${word.id}`}
                 wordId={word.id}
                 initialKnew={word.knewCount}
                 initialDidntKnow={word.didntKnowCount}
               />
-            </div>
 
-            <div>
-              <p className="mb-2 text-sm text-foreground/60">Hodnotenie významu slova:</p>
-              <div className="flex flex-wrap items-center gap-3">
-                <UsefulnessWidget
-                  key={`useful-${word.id}`}
-                  wordId={word.id}
-                  initialUseful={word.usefulCount}
-                  initialNotUseful={word.notUsefulCount}
-                  isAuthenticated={!!session?.user}
-                />
-                <ReportIssueButton
-                  key={`report-${word.id}`}
-                  wordId={word.id}
-                  word={word.word}
-                  pos={word.pos}
-                  slug={word.slug}
-                  tags={word.tags}
-                  meaning={word.meaning}
-                />
+              <div>
+                <p className="mb-2 text-sm text-foreground/60">Hodnotenie významu slova:</p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <UsefulnessWidget
+                    key={`useful-${word.id}`}
+                    wordId={word.id}
+                    initialUseful={word.usefulCount}
+                    initialNotUseful={word.notUsefulCount}
+                    isAuthenticated={!!session?.user}
+                  />
+                  <ReportIssueButton
+                    key={`report-${word.id}`}
+                    wordId={word.id}
+                    word={word.word}
+                    wordTags={word.tags.map((t) => t.slug)}
+                    tagCatalog={tagCatalog}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </WordCard>
+          )}
+        />
 
         {nextSlug && (
           <div className="mt-6 flex justify-center">

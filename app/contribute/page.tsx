@@ -1,6 +1,9 @@
 import { SubmissionForm } from "@/components/SubmissionForm";
+import { getTagCatalog } from "@/lib/tagCatalog";
 
-export default function ContributePage() {
+export default async function ContributePage() {
+  const tagCatalog = await getTagCatalog();
+
   return (
     <div className="mx-auto max-w-lg">
       <h1 className="mb-2 text-2xl font-semibold">Pridať slovo</h1>
@@ -8,7 +11,7 @@ export default function ContributePage() {
         Navrhnite archaické, nárečové alebo zriedkavé slovenské slovo. Po schválení
         administrátorom sa zobrazí v zozname slov.
       </p>
-      <SubmissionForm />
+      <SubmissionForm tagCatalog={tagCatalog} />
     </div>
   );
 }

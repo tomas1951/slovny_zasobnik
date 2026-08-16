@@ -1,7 +1,12 @@
 import Link from "next/link";
-import { ALL_TAGS, TAG_LABELS } from "@/lib/tags";
 
-export function TagFilter({ selected }: { selected: string[] }) {
+export function TagFilter({
+  selected,
+  catalog,
+}: {
+  selected: string[];
+  catalog: { slug: string; label: string }[];
+}) {
   return (
     <div className="mb-8 flex flex-wrap gap-2">
       <Link
@@ -14,16 +19,16 @@ export function TagFilter({ selected }: { selected: string[] }) {
       >
         Všetky
       </Link>
-      {ALL_TAGS.map((tag) => {
-        const isSelected = selected.includes(tag);
+      {catalog.map((tag) => {
+        const isSelected = selected.includes(tag.slug);
         const nextTags = isSelected
-          ? selected.filter((t) => t !== tag)
-          : [...selected, tag];
+          ? selected.filter((t) => t !== tag.slug)
+          : [...selected, tag.slug];
         const href = nextTags.length > 0 ? `/words?tags=${nextTags.join(",")}` : "/words";
 
         return (
           <Link
-            key={tag}
+            key={tag.slug}
             href={href}
             className={`rounded-full px-3 py-1 text-sm ${
               isSelected
@@ -31,7 +36,7 @@ export function TagFilter({ selected }: { selected: string[] }) {
                 : "bg-foreground/5 text-foreground/70 hover:bg-foreground/10"
             }`}
           >
-            {TAG_LABELS[tag] ?? tag}
+            {tag.label}
           </Link>
         );
       })}

@@ -3,7 +3,6 @@
 import { useActionState, useState } from "react";
 import { Flag, CheckCircle2, Send } from "lucide-react";
 import { reportWordIssue } from "@/lib/actions/reports";
-import { ALL_TAGS, TAG_LABELS } from "@/lib/tags";
 
 const readonlyFieldClasses =
   "rounded-md border border-foreground/10 bg-foreground/5 px-3 py-2 text-foreground/70 disabled:cursor-not-allowed";
@@ -11,17 +10,13 @@ const readonlyFieldClasses =
 export function ReportIssueButton({
   wordId,
   word,
-  pos,
-  slug,
-  tags,
-  meaning,
+  wordTags,
+  tagCatalog,
 }: {
   wordId: string;
   word: string;
-  pos: string | null;
-  slug: string;
-  tags: string[];
-  meaning: string;
+  wordTags: string[];
+  tagCatalog: { slug: string; label: string }[];
 }) {
   const [open, setOpen] = useState(false);
   const [state, formAction, pending] = useActionState(reportWordIssue, undefined);
@@ -60,34 +55,13 @@ export function ReportIssueButton({
         <input type="text" value={word} disabled className={readonlyFieldClasses} />
       </label>
 
-      <label className="flex flex-col gap-1 text-sm text-foreground/60">
-        Slovný druh
-        <input type="text" value={pos ?? "—"} disabled className={readonlyFieldClasses} />
-      </label>
-
-      <label className="flex flex-col gap-1 text-sm text-foreground/60">
-        Identifikátor (slug)
-        <input type="text" value={slug} disabled className={readonlyFieldClasses} />
-      </label>
-
-      <label className="flex flex-col gap-1 text-sm">
-        Význam
-        <textarea
-          name="meaning"
-          defaultValue={meaning}
-          required
-          rows={3}
-          className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
-        />
-      </label>
-
       <fieldset className="flex flex-col gap-2 text-sm">
-        <legend className="mb-1">Príznaky</legend>
+        <legend className="mb-1">Príznaky slova</legend>
         <div className="flex flex-wrap gap-3">
-          {ALL_TAGS.map((tag) => (
-            <label key={tag} className="flex items-center gap-1.5">
-              <input type="checkbox" name="tags" value={tag} defaultChecked={tags.includes(tag)} />
-              {TAG_LABELS[tag]}
+          {tagCatalog.map((tag) => (
+            <label key={tag.slug} className="flex items-center gap-1.5">
+              <input type="checkbox" name="tags" value={tag.slug} defaultChecked={wordTags.includes(tag.slug)} />
+              {tag.label}
             </label>
           ))}
         </div>
@@ -97,7 +71,7 @@ export function ReportIssueButton({
         Doplňujúca poznámka (nepovinné)
         <textarea
           name="message"
-          placeholder="Prečo navrhujete túto zmenu?"
+          placeholder="Napr. ktorý význam je zle sformulovaný a ako by mal znieť"
           rows={2}
           className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
         />

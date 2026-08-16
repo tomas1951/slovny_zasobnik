@@ -3,9 +3,9 @@
 import { useActionState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
 import { submitWord } from "@/lib/actions/words";
-import { ALL_TAGS, TAG_LABELS, POS_OPTIONS } from "@/lib/tags";
+import { POS_OPTIONS } from "@/lib/tags";
 
-export function SubmissionForm() {
+export function SubmissionForm({ tagCatalog }: { tagCatalog: { slug: string; label: string }[] }) {
   const [state, formAction, pending] = useActionState(submitWord, undefined);
 
   if (state?.success) {
@@ -58,10 +58,10 @@ export function SubmissionForm() {
       <fieldset className="flex flex-col gap-2 text-sm">
         <legend className="mb-1">Príznaky</legend>
         <div className="flex flex-wrap gap-3">
-          {ALL_TAGS.map((tag) => (
-            <label key={tag} className="flex items-center gap-1.5">
-              <input type="checkbox" name="tags" value={tag} />
-              {TAG_LABELS[tag]}
+          {tagCatalog.map((tag) => (
+            <label key={tag.slug} className="flex items-center gap-1.5">
+              <input type="checkbox" name="tags" value={tag.slug} />
+              {tag.label}
             </label>
           ))}
         </div>

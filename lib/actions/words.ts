@@ -3,14 +3,14 @@
 import { z } from "zod";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { ALL_TAGS, POS_OPTIONS } from "@/lib/tags";
+import { POS_OPTIONS } from "@/lib/tags";
 import { WordStatus } from "@/generated/prisma/enums";
 
 const submissionSchema = z.object({
   word: z.string().trim().min(1, "Zadajte slovo"),
   pos: z.union([z.enum(POS_OPTIONS), z.literal("")]).optional(),
   meaning: z.string().trim().min(1, "Zadajte význam"),
-  tags: z.array(z.enum(ALL_TAGS as [string, ...string[]])).min(1, "Vyberte aspoň jeden príznak"),
+  tags: z.array(z.string()).min(1, "Vyberte aspoň jeden príznak"),
 });
 
 function slugify(input: string): string {
@@ -48,13 +48,30 @@ export async function submitWord(_prevState: { error?: string; success?: boolean
   }
   const { word, pos, meaning, tags } = parsed.data;
 
-  await prisma.word.create({
+  const validTags = await prisma.tag.findMany({ where: { slug: { in: tags } }, select: { slug: true } });
+  if (validTags.length !== tags.length) {
+    return { error: "Neplatný príznak" };
+  }
+
+  // Same spelling as an existing word: attach as a new (pending) meaning of
+  // that word instead of creating a duplicate entry for the same headword.
+  // Tags describe the word as a whole, so the chosen tags are unioned onto
+  // it either way (connect is a no-op for ones already there).
+  const existingWord = await prisma.word.findFirst({ where: { word } });
+  const wordRow = existingWord
+    ? await prisma.word.update({
+        where: { id: existingWord.id },
+        data: { tags: { connect: tags.map((slug) => ({ slug })) } },
+      })
+    : await prisma.word.create({
+        data: { slug: await uniqueSlug(word), word, tags: { connect: tags.map((slug) => ({ slug })) } },
+      });
+
+  await prisma.wordMeaning.create({
     data: {
-      slug: await uniqueSlug(word),
-      word,
+      wordId: wordRow.id,
       pos: pos || null,
       meaning,
-      tags,
       status: WordStatus.PENDING,
       submittedById: session.user.id,
     },

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { ALL_TAGS, POS_OPTIONS } from "@/lib/tags";
+import { POS_OPTIONS } from "@/lib/tags";
 import { WordStatus } from "@/generated/prisma/enums";
 
 async function requireAdmin() {
@@ -13,19 +13,19 @@ async function requireAdmin() {
   return session;
 }
 
-export async function approveWord(wordId: string) {
+export async function approveWord(meaningId: string) {
   const session = await requireAdmin();
-  await prisma.word.update({
-    where: { id: wordId },
+  await prisma.wordMeaning.update({
+    where: { id: meaningId },
     data: { status: WordStatus.PUBLISHED, reviewedById: session.user.id, reviewedAt: new Date() },
   });
   revalidatePath("/admin/submissions");
 }
 
-export async function rejectWord(wordId: string) {
+export async function rejectWord(meaningId: string) {
   const session = await requireAdmin();
-  await prisma.word.update({
-    where: { id: wordId },
+  await prisma.wordMeaning.update({
+    where: { id: meaningId },
     data: { status: WordStatus.REJECTED, reviewedById: session.user.id, reviewedAt: new Date() },
   });
   revalidatePath("/admin/submissions");
@@ -34,13 +34,14 @@ export async function rejectWord(wordId: string) {
 export async function applyWordReport(reportId: string) {
   await requireAdmin();
   const report = await prisma.wordReport.findUniqueOrThrow({ where: { id: reportId } });
-  await prisma.word.update({
-    where: { id: report.wordId },
-    data: {
-      ...(report.proposedMeaning ? { meaning: report.proposedMeaning } : {}),
-      ...(report.proposedTags.length > 0 ? { tags: report.proposedTags } : {}),
-    },
-  });
+
+  if (report.proposedTags.length > 0) {
+    await prisma.word.update({
+      where: { id: report.wordId },
+      data: { tags: { set: report.proposedTags.map((slug) => ({ slug })) } },
+    });
+  }
+
   await prisma.wordReport.delete({ where: { id: reportId } });
   revalidatePath("/admin/submissions");
 }
@@ -51,13 +52,15 @@ export async function dismissWordReport(reportId: string) {
   revalidatePath("/admin/submissions");
 }
 
-const updateWordSchema = z.object({
-  wordId: z.string().min(1),
-  word: z.string().trim().min(1, "Zadajte slovo"),
+// Scoped to a single meaning's own fields (pos/meaning/status). Tags and the
+// Word's headword/slug are shared across every meaning under it, so they
+// aren't exposed here — tags have their own edit affordance
+// (EditWordTagsButton/updateWordTags), and renaming/re-slugging is still a
+// direct-DB edit.
+const updateMeaningSchema = z.object({
+  meaningId: z.string().min(1),
   pos: z.union([z.enum(POS_OPTIONS), z.literal("")]).optional(),
-  slug: z.string().trim().min(1, "Zadajte identifikátor"),
   meaning: z.string().trim().min(1, "Zadajte význam"),
-  tags: z.array(z.enum(ALL_TAGS as [string, ...string[]])).min(1, "Vyberte aspoň jeden príznak"),
   status: z.enum([WordStatus.PENDING, WordStatus.PUBLISHED, WordStatus.REJECTED]),
 });
 
@@ -67,37 +70,42 @@ export async function updateWordByAdmin(
 ) {
   await requireAdmin();
 
-  const parsed = updateWordSchema.safeParse({
-    wordId: formData.get("wordId"),
-    word: formData.get("word"),
+  const parsed = updateMeaningSchema.safeParse({
+    meaningId: formData.get("meaningId"),
     pos: formData.get("pos") ?? "",
-    slug: formData.get("slug"),
     meaning: formData.get("meaning"),
-    tags: formData.getAll("tags"),
     status: formData.get("status"),
   });
   if (!parsed.success) {
     return { error: parsed.error.issues[0].message };
   }
-  const { wordId, word, pos, slug, meaning, tags, status } = parsed.data;
+  const { meaningId, pos, meaning, status } = parsed.data;
 
-  const current = await prisma.word.findUniqueOrThrow({ where: { id: wordId } });
-
-  if (slug !== current.slug) {
-    const slugOwner = await prisma.word.findUnique({ where: { slug }, select: { id: true } });
-    if (slugOwner) return { error: "Tento identifikátor (slug) už používa iné slovo" };
-  }
-
-  await prisma.word.update({
-    where: { id: wordId },
-    data: { word, pos: pos || null, slug, meaning, tags, status },
+  const current = await prisma.wordMeaning.update({
+    where: { id: meaningId },
+    data: { pos: pos || null, meaning, status },
+    select: { word: { select: { slug: true } } },
   });
 
   revalidatePath("/");
   revalidatePath("/words");
-  revalidatePath(`/words/${current.slug}`);
-  if (slug !== current.slug) revalidatePath(`/words/${slug}`);
+  revalidatePath(`/words/${current.word.slug}`);
   revalidatePath("/admin/submissions");
 
   return { success: true };
+}
+
+export async function updateWordTags(wordId: string, tagSlugs: string[]) {
+  await requireAdmin();
+
+  const word = await prisma.word.update({
+    where: { id: wordId },
+    data: { tags: { set: tagSlugs.map((slug) => ({ slug })) } },
+    select: { slug: true },
+  });
+
+  revalidatePath("/");
+  revalidatePath("/words");
+  revalidatePath(`/words/${word.slug}`);
+  revalidatePath("/admin/submissions");
 }

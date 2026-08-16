@@ -4,7 +4,7 @@ import { useState, useTransition, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Pencil, X, Save } from "lucide-react";
 import { updateWordByAdmin } from "@/lib/actions/admin";
-import { ALL_TAGS, TAG_LABELS, POS_OPTIONS } from "@/lib/tags";
+import { POS_OPTIONS } from "@/lib/tags";
 import { WordStatus } from "@/generated/prisma/enums";
 
 const STATUS_LABELS: Record<string, string> = {
@@ -14,14 +14,11 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 export function EditWordButton({
-  word,
+  meaning,
 }: {
-  word: {
+  meaning: {
     id: string;
-    word: string;
     pos: string | null;
-    slug: string;
-    tags: string[];
     meaning: string;
     status: string;
   };
@@ -65,35 +62,13 @@ export function EditWordButton({
         onSubmit={handleSubmit}
         className="flex w-full flex-col gap-4 rounded-md border border-foreground/15 p-4"
       >
-        <input type="hidden" name="wordId" value={word.id} />
-
-        <label className="flex flex-col gap-1 text-sm">
-          Slovo
-          <input
-            type="text"
-            name="word"
-            defaultValue={word.word}
-            required
-            className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
-          />
-        </label>
-
-        <label className="flex flex-col gap-1 text-sm">
-          Identifikátor (slug)
-          <input
-            type="text"
-            name="slug"
-            defaultValue={word.slug}
-            required
-            className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
-          />
-        </label>
+        <input type="hidden" name="meaningId" value={meaning.id} />
 
         <label className="flex flex-col gap-1 text-sm">
           Slovný druh
           <select
             name="pos"
-            defaultValue={word.pos ?? ""}
+            defaultValue={meaning.pos ?? ""}
             className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
           >
             <option value="">—</option>
@@ -109,30 +84,18 @@ export function EditWordButton({
           Význam
           <textarea
             name="meaning"
-            defaultValue={word.meaning}
+            defaultValue={meaning.meaning}
             required
             rows={3}
             className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
           />
         </label>
 
-        <fieldset className="flex flex-col gap-2 text-sm">
-          <legend className="mb-1">Príznaky</legend>
-          <div className="flex flex-wrap gap-3">
-            {ALL_TAGS.map((tag) => (
-              <label key={tag} className="flex items-center gap-1.5">
-                <input type="checkbox" name="tags" value={tag} defaultChecked={word.tags.includes(tag)} />
-                {TAG_LABELS[tag]}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <label className="flex flex-col gap-1 text-sm">
           Stav
           <select
             name="status"
-            defaultValue={word.status}
+            defaultValue={meaning.status}
             className="rounded-md border border-foreground/15 bg-transparent px-3 py-2"
           >
             {Object.entries(STATUS_LABELS).map(([value, label]) => (

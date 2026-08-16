@@ -1,62 +1,73 @@
 import { Tag, Check, X, Flag } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { WordStatus } from "@/generated/prisma/enums";
-import { TAG_LABELS } from "@/lib/tags";
+import { getTagCatalog } from "@/lib/tagCatalog";
 import { approveWord, rejectWord, applyWordReport, dismissWordReport } from "@/lib/actions/admin";
 import { EditWordButton } from "@/components/EditWordButton";
+import { EditWordTagsButton } from "@/components/EditWordTagsButton";
 
 export default async function AdminSubmissionsPage() {
-  const [submissions, reports] = await Promise.all([
-    prisma.word.findMany({
+  const [submissions, reports, tagCatalog] = await Promise.all([
+    prisma.wordMeaning.findMany({
       where: { status: WordStatus.PENDING },
       orderBy: { createdAt: "asc" },
-      include: { submittedBy: { select: { name: true, email: true } } },
+      include: {
+        word: { include: { tags: { orderBy: { order: "asc" } } } },
+        submittedBy: { select: { name: true, email: true } },
+      },
     }),
     prisma.wordReport.findMany({
       orderBy: { createdAt: "asc" },
-      include: { word: true, reporter: { select: { name: true, email: true } } },
+      include: {
+        word: { include: { tags: { orderBy: { order: "asc" } } } },
+        reporter: { select: { name: true, email: true } },
+      },
     }),
+    getTagCatalog(),
   ]);
+  const tagLabel = new Map(tagCatalog.map((t) => [t.slug, t.label]));
 
   return (
     <div className="flex flex-col gap-10">
       <section>
         <h1 className="mb-6 text-2xl font-semibold">Nové slová na schválenie ({submissions.length})</h1>
         <div className="flex flex-col gap-4">
-          {submissions.map((word) => (
-            <article key={word.id} className="rounded-lg border border-foreground/10 p-6">
+          {submissions.map((meaning) => (
+            <article key={meaning.id} className="rounded-lg border border-foreground/10 p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
-                <h2 className="text-xl font-semibold">{word.word}</h2>
-                {word.pos && <span className="text-sm text-foreground/50">{word.pos}</span>}
+                <h2 className="text-xl font-semibold">{meaning.word.word}</h2>
+                {meaning.pos && <span className="text-sm text-foreground/50">{meaning.pos}</span>}
                 <EditWordButton
-                  word={{
-                    id: word.id,
-                    word: word.word,
-                    pos: word.pos,
-                    slug: word.slug,
-                    tags: word.tags,
-                    meaning: word.meaning,
-                    status: word.status,
+                  meaning={{
+                    id: meaning.id,
+                    pos: meaning.pos,
+                    meaning: meaning.meaning,
+                    status: meaning.status,
                   }}
                 />
               </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {word.tags.map((tag) => (
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                {meaning.word.tags.map((tag) => (
                   <span
-                    key={tag}
+                    key={tag.slug}
                     className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs text-accent-text"
                   >
                     <Tag className="h-3 w-3" />
-                    {TAG_LABELS[tag] ?? tag}
+                    {tag.label}
                   </span>
                 ))}
+                <EditWordTagsButton
+                  wordId={meaning.word.id}
+                  currentTags={meaning.word.tags.map((t) => t.slug)}
+                  catalog={tagCatalog}
+                />
               </div>
-              <p className="mt-3">{word.meaning}</p>
+              <p className="mt-3">{meaning.meaning}</p>
               <p className="mt-3 text-xs text-foreground/40">
-                Od: {word.submittedBy?.name ?? word.submittedBy?.email ?? "neznámy"}
+                Od: {meaning.submittedBy?.name ?? meaning.submittedBy?.email ?? "neznámy"}
               </p>
               <div className="mt-4 flex gap-3">
-                <form action={approveWord.bind(null, word.id)}>
+                <form action={approveWord.bind(null, meaning.id)}>
                   <button
                     type="submit"
                     className="inline-flex items-center gap-1.5 rounded-md bg-green-600 px-4 py-1.5 text-sm text-white hover:bg-green-700"
@@ -65,7 +76,7 @@ export default async function AdminSubmissionsPage() {
                     Schváliť
                   </button>
                 </form>
-                <form action={rejectWord.bind(null, word.id)}>
+                <form action={rejectWord.bind(null, meaning.id)}>
                   <button
                     type="submit"
                     className="inline-flex items-center gap-1.5 rounded-md bg-red-600 px-4 py-1.5 text-sm text-white hover:bg-red-700"
@@ -93,40 +104,39 @@ export default async function AdminSubmissionsPage() {
                   <Flag className="h-4 w-4 text-foreground/50" />
                   {report.word.word}
                 </h2>
-                {report.word.pos && <span className="text-sm text-foreground/50">{report.word.pos}</span>}
-                <EditWordButton
-                  word={{
-                    id: report.word.id,
-                    word: report.word.word,
-                    pos: report.word.pos,
-                    slug: report.word.slug,
-                    tags: report.word.tags,
-                    meaning: report.word.meaning,
-                    status: report.word.status,
-                  }}
+                <EditWordTagsButton
+                  wordId={report.word.id}
+                  currentTags={report.word.tags.map((t) => t.slug)}
+                  catalog={tagCatalog}
                 />
               </div>
 
-              {report.proposedMeaning && report.proposedMeaning !== report.word.meaning && (
-                <div className="mt-3 text-sm">
-                  <p className="text-foreground/40">Súčasný význam</p>
-                  <p className="text-foreground/70 line-through">{report.word.meaning}</p>
-                  <p className="mt-1 text-foreground/40">Navrhovaný význam</p>
-                  <p>{report.proposedMeaning}</p>
+              <div className="mt-3 text-sm">
+                <p className="text-foreground/40">Súčasné príznaky</p>
+                <div className="mt-1 flex flex-wrap gap-2">
+                  {report.word.tags.map((tag) => (
+                    <span
+                      key={tag.slug}
+                      className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs text-accent-text"
+                    >
+                      <Tag className="h-3 w-3" />
+                      {tag.label}
+                    </span>
+                  ))}
                 </div>
-              )}
+              </div>
 
               {report.proposedTags.length > 0 && (
-                <div className="mt-3">
-                  <p className="text-sm text-foreground/40">Navrhované príznaky</p>
+                <div className="mt-3 text-sm">
+                  <p className="text-foreground/40">Navrhované príznaky</p>
                   <div className="mt-1 flex flex-wrap gap-2">
-                    {report.proposedTags.map((tag) => (
+                    {report.proposedTags.map((slug) => (
                       <span
-                        key={tag}
+                        key={slug}
                         className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs text-accent-text"
                       >
                         <Tag className="h-3 w-3" />
-                        {TAG_LABELS[tag] ?? tag}
+                        {tagLabel.get(slug) ?? slug}
                       </span>
                     ))}
                   </div>

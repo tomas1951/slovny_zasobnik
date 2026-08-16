@@ -33,8 +33,8 @@ model User {
 
   accounts       Account[]
   sessions       Session[]
-  submittedWords Word[]       @relation("SubmittedWords")
-  reviewedWords  Word[]       @relation("ReviewedWords")
+  submittedWords WordMeaning[] @relation("SubmittedWords")
+  reviewedWords  WordMeaning[] @relation("ReviewedWords")
   wordReports    WordReport[]
 
   @@map("users")
@@ -80,16 +80,61 @@ model VerificationToken {
   @@map("verification_tokens")
 }
 
+// The lexical headword. One row per distinct spelling — every WordMeaning
+// under it is a separate sense of the same word, shown together rather than
+// as unrelated entries. Tags describe the word as a whole (not one sense),
+// so they live here even when the underlying senses were originally tagged
+// differently — those get unioned onto the word.
 model Word {
-  id        String     @id @default(cuid())
-  slug      String     @unique
+  id        String   @id @default(cuid())
+  slug      String   @unique
   word      String
+  createdAt DateTime @default(now())
+
+  meanings WordMeaning[]
+  tags     Tag[]
+  reports  WordReport[]
+
+  // Both the "did you know this word" poll and the usefulness rating are
+  // questions about the whole word, not one sense, so both live here.
+  knewCount      Int @default(0)
+  didntKnowCount Int @default(0)
+  usefulCount    Int @default(0)
+  notUsefulCount Int @default(0)
+
+  @@index([word])
+  @@map("words")
+}
+
+// A single assignable label (archaic, dialect, ...). A normalized model
+// rather than a hardcoded list so the vocabulary can grow later without a
+// code change — add a row (via the seed script or directly) to make a new
+// tag assignable.
+model Tag {
+  id    String @id @default(cuid())
+  slug  String @unique
+  label String
+  order Int    @default(0)
+
+  words Word[]
+
+  @@map("tags")
+}
+
+// One sense/definition of a Word. Everything that can differ between
+// meanings of the same word (part of speech, the definition text,
+// moderation status) lives here. Tags and the poll/usefulness counters do
+// not — see Word.
+model WordMeaning {
+  id        String     @id @default(cuid())
   pos       String?
-  tags      String[]
   meaning   String     @db.Text
   status    WordStatus @default(PENDING)
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+
+  wordId String
+  word   Word   @relation(fields: [wordId], references: [id], onDelete: Cascade)
 
   submittedById String?
   submittedBy   User?   @relation("SubmittedWords", fields: [submittedById], references: [id], onDelete: SetNull)
@@ -99,24 +144,21 @@ model Word {
   reviewedAt      DateTime?
   rejectionReason String?   @db.Text
 
-  knewCount      Int @default(0)
-  didntKnowCount Int @default(0)
-
-  usefulCount    Int @default(0)
-  notUsefulCount Int @default(0)
-
-  reports WordReport[]
-
   @@index([status])
-  @@map("words")
+  @@index([wordId])
+  @@map("word_meanings")
 }
 
+// Flags/proposes a change to a Word as a whole. Meaning text isn't editable
+// through a report (that's an admin-only per-meaning action via
+// EditWordButton) — a report can only propose a new tag set for the word,
+// plus a freeform message for anything else (e.g. "the 2nd meaning is
+// misworded").
 model WordReport {
-  id              String   @id @default(cuid())
-  message         String?  @db.Text
-  proposedMeaning String?  @db.Text
-  proposedTags    String[] @default([])
-  createdAt       DateTime @default(now())
+  id           String   @id @default(cuid())
+  message      String?  @db.Text
+  proposedTags String[] @default([])
+  createdAt    DateTime @default(now())
 
   wordId String
   word   Word   @relation(fields: [wordId], references: [id], onDelete: Cascade)

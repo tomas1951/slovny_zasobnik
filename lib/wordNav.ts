@@ -1,9 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { WordStatus } from "@/generated/prisma/enums";
 
+const publishedMeaning = { meanings: { some: { status: WordStatus.PUBLISHED } } } as const;
+
 export async function getPublishedWordSlugs(): Promise<string[]> {
   const words = await prisma.word.findMany({
-    where: { status: WordStatus.PUBLISHED },
+    where: publishedMeaning,
     orderBy: { word: "asc" },
     select: { slug: true },
   });
@@ -11,5 +13,11 @@ export async function getPublishedWordSlugs(): Promise<string[]> {
 }
 
 export async function getPublishedWordBySlug(slug: string) {
-  return prisma.word.findFirst({ where: { slug, status: WordStatus.PUBLISHED } });
+  return prisma.word.findFirst({
+    where: { slug, ...publishedMeaning },
+    include: {
+      meanings: { where: { status: WordStatus.PUBLISHED }, orderBy: { createdAt: "asc" } },
+      tags: { orderBy: { order: "asc" } },
+    },
+  });
 }
