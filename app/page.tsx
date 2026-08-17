@@ -28,7 +28,7 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
   const isBrowsing = requestedWord !== null && requestedWord.id !== wordOfDay?.id;
 
   const topSection = (
-    <div className="grid gap-8 lg:grid-cols-[1fr_220px] lg:items-start">
+    <div className="mx-auto grid max-w-[898px] gap-8 lg:grid-cols-[1fr_220px] lg:items-start">
       <div>
         <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
           Dopĺňame zásobník slovnej zásoby
@@ -76,7 +76,7 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
     <div>
       {topSection}
 
-      <div className="mt-10">
+      <div className="mx-auto mt-10 max-w-[898px]">
         <h2 className="mb-6 text-sm font-medium uppercase tracking-wide text-accent-text">
           {isBrowsing ? "Prehliadané slovo" : "Slovo dňa"}
         </h2>

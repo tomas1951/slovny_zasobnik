@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-foreground/10 bg-foreground/5">
-      <div className="mx-auto grid max-w-[930px] gap-8 px-4 py-10 sm:grid-cols-3">
+      <div className="mx-auto grid max-w-[1120px] gap-8 px-4 py-10 sm:grid-cols-3">
         <div>
           <h3 className="text-base font-semibold text-accent-strong">Slovný zásobník</h3>
           <p className="mt-3 max-w-xs text-sm text-foreground/60">
