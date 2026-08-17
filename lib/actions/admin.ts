@@ -109,3 +109,18 @@ export async function updateWordTags(wordId: string, tagSlugs: string[]) {
   revalidatePath(`/words/${word.slug}`);
   revalidatePath("/admin/submissions");
 }
+
+// WordMeaning and WordReport cascade on Word deletion (onDelete: Cascade in
+// the schema); the Tag join table rows are dropped too, but the Tag rows
+// themselves are untouched since they're a shared catalog, not owned by
+// this word.
+export async function deleteWord(wordId: string) {
+  await requireAdmin();
+
+  const word = await prisma.word.delete({ where: { id: wordId }, select: { slug: true } });
+
+  revalidatePath("/");
+  revalidatePath("/words");
+  revalidatePath(`/words/${word.slug}`);
+  revalidatePath("/admin/submissions");
+}

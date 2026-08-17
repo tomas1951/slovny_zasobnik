@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Tag } from "lucide-react";
 import { EditWordButton } from "@/components/EditWordButton";
 import { EditWordTagsButton } from "@/components/EditWordTagsButton";
+import { DeleteWordButton } from "@/components/DeleteWordButton";
 
 export type WordCardMeaning = {
   id: string;
@@ -34,15 +35,18 @@ export function WordCard<M extends WordCardMeaning>({
 }) {
   return (
     <article className="rounded-lg border border-foreground/10 bg-background p-6">
-      <h2 className="text-2xl font-semibold">
-        {slug ? (
-          <Link href={`/words/${slug}`} className="hover:text-accent-strong hover:underline">
-            {word}
-          </Link>
-        ) : (
-          word
-        )}
-      </h2>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-2xl font-semibold">
+          {slug ? (
+            <Link href={`/words/${slug}`} className="hover:text-accent-strong hover:underline">
+              {word}
+            </Link>
+          ) : (
+            word
+          )}
+        </h2>
+        {isAdmin && wordId && <DeleteWordButton wordId={wordId} word={word} />}
+      </div>
 
       <div className="mt-2 flex flex-wrap items-center gap-2">
         {tags.map((tag) => (

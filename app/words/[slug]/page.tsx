@@ -6,6 +6,7 @@ import { auth } from "@/lib/auth";
 import { WordCard } from "@/components/WordCard";
 import { UsefulnessWidget } from "@/components/UsefulnessWidget";
 import { WordPoll } from "@/components/WordPoll";
+import { ReportIssueButton } from "@/components/ReportIssueButton";
 import { getTagCatalog } from "@/lib/tagCatalog";
 
 export default async function WordDetailPage({ params }: PageProps<"/words/[slug]">) {
@@ -41,17 +42,7 @@ export default async function WordDetailPage({ params }: PageProps<"/words/[slug
           isAdmin={isAdmin}
           tagCatalog={tagCatalog}
           renderWordExtra={() => (
-            <div className="mt-6 flex flex-wrap items-start gap-8 border-t border-foreground/10 pt-6">
-              <div>
-                <p className="mb-2 text-sm text-foreground/60">Hodnotenie významu slova:</p>
-                <UsefulnessWidget
-                  key={`useful-${word.id}`}
-                  wordId={word.id}
-                  initialUseful={word.usefulCount}
-                  initialNotUseful={word.notUsefulCount}
-                  isAuthenticated={!!session?.user}
-                />
-              </div>
+            <div className="mt-6 flex flex-wrap items-start justify-between gap-8 border-t border-foreground/10 pt-6">
               <div>
                 <WordPoll
                   key={`poll-${word.id}`}
@@ -59,6 +50,25 @@ export default async function WordDetailPage({ params }: PageProps<"/words/[slug
                   initialKnew={word.knewCount}
                   initialDidntKnow={word.didntKnowCount}
                 />
+              </div>
+              <div>
+                <p className="mb-2 text-sm text-foreground/60">Hodnotenie významu slova:</p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <UsefulnessWidget
+                    key={`useful-${word.id}`}
+                    wordId={word.id}
+                    initialUseful={word.usefulCount}
+                    initialNotUseful={word.notUsefulCount}
+                    isAuthenticated={!!session?.user}
+                  />
+                  <ReportIssueButton
+                    key={`report-${word.id}`}
+                    wordId={word.id}
+                    word={word.word}
+                    wordTags={word.tags.map((t) => t.slug)}
+                    tagCatalog={tagCatalog}
+                  />
+                </div>
               </div>
             </div>
           )}
