@@ -4,6 +4,7 @@ import { Tag } from "lucide-react";
 import { EditWordButton } from "@/components/EditWordButton";
 import { EditWordTagsButton } from "@/components/EditWordTagsButton";
 import { DeleteWordButton } from "@/components/DeleteWordButton";
+import { DeleteMeaningButton } from "@/components/DeleteMeaningButton";
 
 export type WordCardMeaning = {
   id: string;
@@ -76,7 +77,12 @@ export function WordCard<M extends WordCardMeaning>({
                 {meanings.length > 1 && <span className="text-sm font-medium text-foreground/40">{i + 1}.</span>}
                 {m.pos && <span className="text-sm text-foreground/50">{m.pos}</span>}
               </div>
-              {isAdmin && <EditWordButton meaning={{ ...m, status: m.status ?? "PUBLISHED" }} />}
+              {isAdmin && (
+                <div className="flex items-center gap-1">
+                  <EditWordButton meaning={{ ...m, status: m.status ?? "PUBLISHED" }} />
+                  <DeleteMeaningButton meaningId={m.id} />
+                </div>
+              )}
             </div>
             <p className="mt-3 text-base leading-relaxed">{m.meaning}</p>
           </li>

@@ -5,6 +5,7 @@ import { getTagCatalog } from "@/lib/tagCatalog";
 import { approveWord, rejectWord, applyWordReport, dismissWordReport } from "@/lib/actions/admin";
 import { EditWordButton } from "@/components/EditWordButton";
 import { EditWordTagsButton } from "@/components/EditWordTagsButton";
+import { DeleteMeaningButton } from "@/components/DeleteMeaningButton";
 
 export default async function AdminSubmissionsPage() {
   const [submissions, reports, tagCatalog] = await Promise.all([
@@ -37,14 +38,17 @@ export default async function AdminSubmissionsPage() {
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <h2 className="text-xl font-semibold">{meaning.word.word}</h2>
                 {meaning.pos && <span className="text-sm text-foreground/50">{meaning.pos}</span>}
-                <EditWordButton
-                  meaning={{
-                    id: meaning.id,
-                    pos: meaning.pos,
-                    meaning: meaning.meaning,
-                    status: meaning.status,
-                  }}
-                />
+                <div className="flex items-center gap-1">
+                  <EditWordButton
+                    meaning={{
+                      id: meaning.id,
+                      pos: meaning.pos,
+                      meaning: meaning.meaning,
+                      status: meaning.status,
+                    }}
+                  />
+                  <DeleteMeaningButton meaningId={meaning.id} />
+                </div>
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 {meaning.word.tags.map((tag) => (
