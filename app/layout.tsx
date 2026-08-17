@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <Header session={session} />
-        <main className="mx-auto w-full max-w-[930px] flex-1 px-4 py-8">{children}</main>
+        <main className="mx-auto w-full max-w-[1120px] flex-1 px-4 py-8">{children}</main>
         <Footer />
         <Analytics />
       </body>

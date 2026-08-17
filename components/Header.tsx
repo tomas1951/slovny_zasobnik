@@ -1,12 +1,12 @@
 import Link from "next/link";
 import type { Session } from "next-auth";
-import { BookOpenText, Library, PlusCircle, ShieldCheck, LogIn, LogOut } from "lucide-react";
+import { BookOpenText, CalendarDays, Library, PlusCircle, ShieldCheck, LogIn, LogOut } from "lucide-react";
 import { signOutAction } from "@/lib/actions/auth";
 
 export function Header({ session }: { session: Session | null }) {
   return (
     <header className="border-b border-foreground/10">
-      <div className="mx-auto flex max-w-[930px] items-center justify-between gap-4 px-4 py-4">
+      <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-4 px-4 py-4">
         <Link
           href="/"
           className="flex items-center gap-2 text-2xl font-bold tracking-tight text-accent-strong hover:opacity-80 sm:text-3xl"
@@ -15,6 +15,13 @@ export function Header({ session }: { session: Session | null }) {
           Slovný zásobník
         </Link>
         <nav className="flex items-center gap-2 text-sm">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground/5 px-4 py-1.5 text-foreground/80 transition-colors hover:bg-foreground/10"
+          >
+            <CalendarDays className="h-4 w-4" />
+            Slovo dňa
+          </Link>
           <Link
             href="/words"
             className="inline-flex items-center gap-1.5 rounded-full bg-foreground/5 px-4 py-1.5 text-foreground/80 transition-colors hover:bg-foreground/10"
