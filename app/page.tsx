@@ -31,7 +31,7 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
     <div className="mx-auto grid max-w-[898px] gap-8 lg:grid-cols-[1fr_220px] lg:items-start">
       <div>
         <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
-          Dopĺňame zásobník slovnej zásoby
+          Rozšírte si slovnú zásobu slovenčiny a objavujte zabudnuté slová
         </h1>
         <p className="mt-3 max-w-xl text-foreground/70">
           Archaické, nárečové a historické slová sú len úvodným výberom. Skutočným cieľom je
