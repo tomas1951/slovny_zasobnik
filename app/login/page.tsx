@@ -2,8 +2,17 @@ import Link from "next/link";
 import { googleSignIn } from "@/lib/actions/auth";
 import { CredentialsSignInForm } from "@/components/CredentialsSignInForm";
 
+const OAUTH_ERROR_MESSAGES: Record<string, string> = {
+  OAuthAccountNotLinked:
+    "Tento e-mail je už zaregistrovaný s lokálnym účtom (heslom). Prihláste sa heslom.",
+};
+
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   const params = await searchParams;
+  const errorParam = Array.isArray(params.error) ? params.error[0] : params.error;
+  const errorMessage = errorParam
+    ? (OAUTH_ERROR_MESSAGES[errorParam] ?? "Prihlásenie zlyhalo. Skúste to znova.")
+    : undefined;
 
   return (
     <div className="mx-auto max-w-sm">
@@ -11,6 +20,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
       {params.registered && (
         <p className="mb-4 rounded-md bg-green-500/10 px-3 py-2 text-sm text-green-700 dark:text-green-400">
           Registrácia prebehla úspešne. Teraz sa môžete prihlásiť.
+        </p>
+      )}
+      {errorMessage && (
+        <p className="mb-4 rounded-md bg-red-500/10 px-3 py-2 text-sm text-red-700 dark:text-red-400">
+          {errorMessage}
         </p>
       )}
       <CredentialsSignInForm />
