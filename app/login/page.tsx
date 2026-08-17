@@ -36,7 +36,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
       <form action={googleSignIn}>
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-strong px-4 py-2 text-on-accent hover:opacity-90"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#d9760f] px-4 py-2 text-on-accent hover:opacity-90"
         >
           <svg viewBox="0 0 48 48" className="h-4 w-4" aria-hidden="true">
             <path
